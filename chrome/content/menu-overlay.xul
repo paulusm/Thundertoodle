@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+  <overlay id="thundertoodle_contextcommand" 
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+        <script src="chrome://thundertoodle/content/overlay.js" type="text/javascript"></script>
+
+      <popup id="mailContext">
+       <menuitem id="send_to_toodledo" label="Create Toodledo Task.." 
+        oncommand="thundertoodle.openTaskDialog()"/> 
+    </popup>
+</overlay>

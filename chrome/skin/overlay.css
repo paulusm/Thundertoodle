@@ -1,0 +1,22 @@
+/* This is just an example.  You shouldn't do this. */
+#thundertoodle-hello
+{
+  color: red ! important;
+}
+#thundertoodle-toolbar-button
+{
+  list-style-image: url("chrome://thundertoodle/skin/toolbar-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#thundertoodle-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #thundertoodle-toolbar-button
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #thundertoodle-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}

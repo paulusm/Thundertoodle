@@ -1,0 +1,8 @@
+<!ENTITY prefwindow.title "thundertoodle preferences">
+<!ENTITY pane1.title "thundertoodle preferences">
+<!ENTITY toodleeml.label "Toodledo Email">
+<!ENTITY toodleeml.accesskey "E">
+<!ENTITY toodlepass.label "Toodledo Password">
+<!ENTITY toodlepass.accesskey "P">
+<!ENTITY toodlefldr.label "Default folder">
+<!ENTITY toodlefldr.accesskey "F">

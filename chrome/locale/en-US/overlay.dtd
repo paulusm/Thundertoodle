@@ -1,0 +1,8 @@
+<!ENTITY thundertoodle.label "Your localized menuitem">
+<!ENTITY thundertoodleContext.label "Your Menuitem">
+<!ENTITY thundertoodleContext.accesskey "Y">
+<!ENTITY thundertoodleToolbarButton.label "Your Toolbar Button">
+<!ENTITY thundertoodleToolbarButton.tooltip "This is your toolbar button!">
+<!ENTITY thundertoodleSidebar.label "Your Sidebar">
+<!ENTITY thundertoodleToolbar.name  "example">
+<!ENTITY thundertoodleToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &thundertoodleToolbar.name;">

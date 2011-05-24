@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://thundertoodle/locale/options.dtd">
+<prefwindow id="thundertoodle-preferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="&prefwindow.title;">
+  <prefpane id="pane1" label="&pane1.title;">
+    <preferences>
+      <preference id="toodle_eml" name="extensions.thundertoodle.toodle_eml" type="string"/> 
+      <preference id="toodle_pass" name="extensions.thundertoodle.toodle_pass" type="string"/> 
+      <preference id="toodle_fldr" name="extensions.thundertoodle.toodle_fldr" type="string"/> 
+    </preferences>
+    <label accesskey="&toodleeml.accesskey;" control="textstringpref">&toodleeml.label;</label><textbox id="texttoodleeml" preference="toodle_eml"/>
+    <label accesskey="&toodlepass.accesskey;" control="textstringpref">&toodlepass.label;</label><textbox type="password" id="texttoodlepass" preference="toodle_pass"/>
+    <label accesskey="&toodlefldr.accesskey;" control="textstringpref">&toodlefldr.label;</label><textbox  id="texttoodlefldr" preference="toodle_fldr"/>  
+</prefpane>
+</prefwindow>

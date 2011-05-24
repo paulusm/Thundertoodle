@@ -1,0 +1,5 @@
+content   thundertoodle                 chrome/content/
+skin      thundertoodle   classic/1.0   chrome/skin/
+locale    thundertoodle   en-US         chrome/locale/en-US/
+overlay   chrome://messenger/content/mailWindowOverlay.xul     chrome://thundertoodle/content/menu-overlay.xul
+

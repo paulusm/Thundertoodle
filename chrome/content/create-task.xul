@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://thundertoodle/locale/options.dtd">
+<window id="create-task" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="Create Task" onload="fillSubject();">
+<script src="chrome://thundertoodle/content/md5-min.js" type="text/javascript"></script>      
+<script src="chrome://thundertoodle/content/toodleapi.js" type="text/javascript"></script>
+<script>
+function fillSubject(){
+    var msgHdr = parent.opener.gFolderDisplay.selectedMessage;
+    //alert(msgHdr.subject);
+    document.getElementById("title").value = msgHdr.subject;
+}
+function doTask(){
+    var subject =  document.getElementById("title").value;
+    var priority = document.getElementById("priority").value;
+    var duedate = document.getElementById("dtdue").value;   
+   
+    var unixDate = new Date(duedate);
+    //alert(unixDate);
+    toodleapi.taskToCreate='[{"title"%3A"'+subject+'"%2C"priority"%3A"'+priority+'"%2C"duedate"%3A"'+ unixDate.getTime()/1000 +'"}]';
+    //alert(toodleapi.taskToCreate);
+    toodleapi.toodleCreateTask();
+}
+</script>
+<label control="title" value="Task title:" />
+<textbox id="title" size="50" />
+<hgroup>
+      <label control="priority" value="Priority:" />
+        <menulist id="priority">
+            <menupopup>
+              <menuitem label="top" value="3"/>
+              <menuitem label="high" value="2"/>
+              <menuitem label="medium" value="1" selected="true"/>
+              <menuitem label="low" value="0"/>
+            </menupopup>
+          </menulist>
+      <label control="dtdue" value="Due date:" />
+      <datepicker id="dtdue" type="popup" />
+</hgroup>
+  <button label="Create task" accesskey="C" onclick="doTask();"/>
+</window>
