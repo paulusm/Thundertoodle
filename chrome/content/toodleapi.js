@@ -14,6 +14,14 @@ var toodleapi = {
 
 taskToCreate:null,
 
+init:function(e){
+    if  (thundertoodle.sesh_key == null){
+        toodleapi.toodleGetUid();
+    }
+},
+
+
+
 //look up the user ID
 toodleGetUid: function(e){
       var eml = prefs.getCharPref("toodle_eml");
@@ -47,7 +55,7 @@ toodleGetUid: function(e){
       var hash = hex_md5(thundertoodle.sesh_uid+"api4dcd5a209a23d");
       
       var req = new XMLHttpRequest();
-      //token = api4dcd5a209a23d
+      //token = api4dcd5a209a23d test change
       req.open('GET', 'http://api.toodledo.com/2/account/token.php?userid='+ thundertoodle.sesh_uid+';appid=Thundertoodle;sig='+hash, true);
       req.onreadystatechange = function (aEvt) {
       if (req.readyState == 4) {
@@ -58,7 +66,7 @@ toodleGetUid: function(e){
              var sesh_token  = ret.token;
              if(thundertoodle.debug) Application.console.log("session token: " + sesh_token);
              thundertoodle.sesh_key = hex_md5(hex_md5(prefs.getCharPref("toodle_pass"))+"api4dcd5a209a23d"+sesh_token);
-             toodleapi.toodleCreateTask();
+             //toodleapi.toodleCreateTask();
          }
           else{
              return -1;
@@ -68,12 +76,35 @@ toodleGetUid: function(e){
     req.send(null);
   },
   
+  toodleGetFolders:function(e){
+     
+      if  (thundertoodle.sesh_key == null){
+         return;
+      }
+     
+      var req = new XMLHttpRequest();
+      
+    
+      req.open('GET','http://api.toodledo.com/2/folders/get.php?key='+thundertoodle.sesh_key,true);
+     	  
+      req.onreadystatechange = function (e) {
+      if (req.readyState == 4) {
+         if(req.status == 200){
+             alert(req.responseText);}
+         else{
+              alert(req.status);
+             }
+        } 
+     };
+     req.send();
+},
+  
   //create the task on the ToodleDo service
   toodleCreateTask: function(e){
       
       if(thundertoodle.debug) Application.console.log("session key: " + thundertoodle.sesh_key);
       if  (thundertoodle.sesh_key == null){
-          toodleapi.toodleGetUid();         
+          //toodleapi.toodleGetUid();         
           return;
       }
      
@@ -91,7 +122,10 @@ toodleGetUid: function(e){
       req.onreadystatechange = function (e) {
       if (req.readyState == 4) {
          if(req.status == 200){
-             alert(req.responseText);}
+             //var resp = req.responseText;
+             alert("task created!");
+             window.close();
+     }
          else{
               alert(req.status);
              }

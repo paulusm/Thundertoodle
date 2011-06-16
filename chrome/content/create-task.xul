@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <!DOCTYPE prefwindow SYSTEM "chrome://thundertoodle/locale/options.dtd">
-<window id="create-task" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="Create Task" onload="fillSubject();">
+<window id="create-task" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" title="Create Task" onload="initForm();">
 <script src="chrome://thundertoodle/content/md5-min.js" type="text/javascript"></script>      
 <script src="chrome://thundertoodle/content/toodleapi.js" type="text/javascript"></script>
 <script>
-function fillSubject(){
+function initForm(){
+    toodleapi.init();
+    //toodleapi.toodleGetFolders();
     var msgHdr = parent.opener.gFolderDisplay.selectedMessage;
     //alert(msgHdr.subject);
     document.getElementById("title").value = msgHdr.subject;
@@ -13,7 +15,8 @@ function fillSubject(){
 function doTask(){
     var subject =  document.getElementById("title").value;
     var priority = document.getElementById("priority").value;
-    var duedate = document.getElementById("dtdue").value;   
+    var duedate = document.getElementById("dtdue").value;  
+    //var fldr = document.getElementById("folder").value;   
    
     var unixDate = new Date(duedate);
     //alert(unixDate);
@@ -36,6 +39,10 @@ function doTask(){
           </menulist>
       <label control="dtdue" value="Due date:" />
       <datepicker id="dtdue" type="popup" />
+      
+
 </hgroup>
+<!--<label control="folder" value="Folder (leave blank if none):" />
+ <textbox id="folder" size="50" />-->
   <button label="Create task" accesskey="C" onclick="doTask();"/>
 </window>
